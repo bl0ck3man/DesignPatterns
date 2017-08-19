@@ -1,16 +1,21 @@
 <?php
 
-require_once 'src/Factory_method/BloggsCommManager.php';
-require_once 'src/Factory_method/MegaCommManager.php';
+use Factory_method\BloggsCommManager;
+use Factory_method\MegaCommManager;
 
-$bloggs = new \Factory_method\BloggsCommManager();
+function __autoload($className)
+{
+    $className = str_replace('\\', '/', $className);
+    require_once 'src/' . $className .'.php';
+}
+
+$bloggs = new BloggsCommManager();
 echo $bloggs->getHeaderText();
 echo $bloggs->getApptEncoder()->encode();
 echo $bloggs->getFooterText();
 
-$mega = new \Factory_method\MegaCommManager();
+$mega = new MegaCommManager();
 echo $mega->getHeaderText();
 echo $mega->getApptEncoder()->encode();
 echo $mega->getFooterText();
 
-?>
