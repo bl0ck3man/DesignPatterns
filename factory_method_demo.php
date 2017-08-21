@@ -1,6 +1,6 @@
 <?php
 
-use Factory_method\{BloggsCommManager, MegaCommManager};
+use Factory_method\{RuFactoryWatch, EnFactoryWatch};
 
 function __autoload($className)
 {
@@ -8,13 +8,19 @@ function __autoload($className)
     require_once 'src/' . $className .'.php';
 }
 
-$bloggs = new BloggsCommManager();
-echo $bloggs->getHeaderText();
-echo $bloggs->getApptEncoder()->encode();
-echo $bloggs->getFooterText();
+function getWatch(string $vendor)
+{
+    switch ($vendor) {
+        case 'RU' : return new RuFactoryWatch();
+        case 'EN' : return new EnFactoryWatch();
+        default: throw new Exception($vendor . ' is not valid');
+    }
+}
 
-$mega = new MegaCommManager();
-echo $mega->getHeaderText();
-echo $mega->getApptEncoder()->encode();
-echo $mega->getFooterText();
+$factory_watch = getWatch('RU');
+
+echo $factory_watch->getWatch()->tick() . PHP_EOL;
+
+$factory_watch = getWatch('EN');
+echo $factory_watch->getWatch()->tick() . PHP_EOL;
 
