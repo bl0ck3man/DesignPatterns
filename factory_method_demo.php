@@ -1,7 +1,6 @@
 <?php
 
-use Factory_method\BloggsCommManager;
-use Factory_method\MegaCommManager;
+use Factory_method\{BloggsCommManager, MegaCommManager};
 
 function __autoload($className)
 {

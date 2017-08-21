@@ -1,19 +1,22 @@
 <?php
 
-require_once 'src/Flexible_Object/Composite/Archer.php';
-require_once 'src/Flexible_Object/Composite/LaserCannonUnit.php';
-require_once 'src/Flexible_Object/Composite/Army.php';
+use Flexible_Object\Composite\{Army, Archer, LaserCannonUnit};
 
-$main_army = new \Flexible_Object\Composite\Army();
-$main_army->addUnit(new \Flexible_Object\Composite\Archer());
-$main_army->addUnit(new \Flexible_Object\Composite\LaserCannonUnit());
+function __autoload($className)
+{
+    $className = str_replace('\\', '/', $className);
+    require_once 'src/' . $className .'.php';
+}
 
-$sub_army = new \Flexible_Object\Composite\Army();
-$sub_army->addUnit(new \Flexible_Object\Composite\Archer());
-$sub_army->addUnit(new \Flexible_Object\Composite\Archer());
-$sub_army->addUnit(new \Flexible_Object\Composite\Archer());
+$main_army = new Army();
+$main_army->addUnit(new Archer());
+$main_army->addUnit(new LaserCannonUnit());
+
+$sub_army = new Army();
+$sub_army->addUnit(new Archer());
+$sub_army->addUnit(new Archer());
+$sub_army->addUnit(new Archer());
 $main_army->addUnit($sub_army);
 
 print "attacking with strength: {$main_army->bombardStrength()}\n";
 
-?>

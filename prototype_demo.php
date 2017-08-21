@@ -1,15 +1,17 @@
 <?php
 
-require_once 'src/Prototype/TerrainFactory.php';
-require_once 'src/Prototype/EarthForest.php';
-require_once 'src/Prototype/EarthSea.php';
-require_once 'src/Prototype/EarthPlains.php';
+use Prototype\{TerrainFactory, EarthSea, EarthPlains, EarthForest};
 
-$factory = new \Prototype\TerrainFactory(new \Prototype\EarthSea(-1),
-    new \Prototype\EarthPlains(), new \Prototype\EarthForest());
+function __autoload($className)
+{
+    $className = str_replace('\\', '/', $className);
+    require_once 'src/' . $className .'.php';
+}
+
+$factory = new TerrainFactory(new EarthSea(-1),
+    new EarthPlains(), new EarthForest());
 
 print_r($factory->getForest());
 print_r($factory->getPlains());
 print_r($factory->getSea());
 
-?>

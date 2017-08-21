@@ -8,11 +8,6 @@
 
 namespace Factory_method;
 
-require_once 'src/Factory_method/MegaApptEncoder.php';
-require_once 'src/Factory_method/CommsManager.php';
-require_once 'src/Factory_method/ApptEncoder.php';
-
-
 class MegaCommManager extends CommsManager
 {
 

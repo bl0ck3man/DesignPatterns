@@ -8,9 +8,6 @@
 
 namespace Factory_method;
 
-
-require_once 'src/Factory_method/ApptEncoder.php';
-
 class MegaApptEncoder extends ApptEncoder
 {
     public function encode()

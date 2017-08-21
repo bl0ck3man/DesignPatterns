@@ -13,4 +13,3 @@ foreach ($lessons as $lesson) {
     print "Тип оплаты: {$lesson->chargeType() } \n";
 }
 
-?>

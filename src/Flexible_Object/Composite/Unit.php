@@ -8,8 +8,6 @@
 
 namespace Flexible_Object\Composite;
 
-require_once 'src/Flexible_Object/Composite/UnitException.php';
-
 abstract class Unit
 {
     abstract function bombardStrength();

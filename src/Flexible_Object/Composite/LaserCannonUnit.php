@@ -8,8 +8,6 @@
 
 namespace Flexible_Object\Composite;
 
-require_once 'src/Flexible_Object/Composite/Unit.php';
-
 class LaserCannonUnit extends Unit
 {
     public function bombardStrength()

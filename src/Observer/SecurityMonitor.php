@@ -8,7 +8,6 @@
 
 namespace Observer;
 
-require_once 'src/Observer/Observer.php';
 
 class SecurityMonitor extends Observer
 {

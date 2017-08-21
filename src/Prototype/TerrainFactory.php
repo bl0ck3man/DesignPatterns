@@ -8,10 +8,6 @@
 
 namespace Prototype;
 
-require_once 'src/Prototype/Sea.php';
-require_once 'src/Prototype/Plains.php';
-require_once 'src/Prototype/Forest.php';
-
 class TerrainFactory
 {
     private $sea;

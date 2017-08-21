@@ -8,8 +8,6 @@
 
 namespace Observer;
 
-require_once 'src/Observer/Observer.php';
-
 class Login implements Observable
 {
     private $observers = [];
